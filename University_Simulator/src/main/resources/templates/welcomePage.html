@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Universidad de los Simuladores</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../scripts/jquery.js"></script>
+  </head>
+  <body>
+    <!-- Barra Navegadora -->
+    <div>
+      <nav class="navbar">
+        <a href="#">Test1</a>
+        <a href="#">Test2</a>
+        <a href="#">Test3</a>
+        <a href="#">Test4</a>
+      </nav>
+    </div>
+    <!-- Contenido de la Pagina -->
+    <div class="container">
+      <!-- Algun relleno -->
+      <div class="subdivision content"></div>
+      <!-- Formulario de Login -->
+      <div class="subdivision formContainer">
+        <form action="#">
+          <h2>Iniciar Sesion</h2>
+          <select name="" id="selector" onchange="checkOption()">
+            <option value="student">Alumno</option>
+            <option value="admin" id="ad">Administrador</option>
+          </select>
+          <div class="inputs">
+            <div class="responsiveInputs" id="studentLogIn">
+              <label for="">Legajo</label>
+              <input type="text" />
+              <label for="">DNI</label>
+              <input type="text" />
+            </div>
+            <div class="responsiveInputs" id="adminLogIn">
+              <label for="">Usuario</label>
+              <input type="text" />
+              <label for="">Contraseña</label>
+              <input type="text" />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer>Bla bla bla, soy un footer!</footer>
+
+    <script>
+      $(document).ready(() => {
+        $("#adminLogIn").css("display", "none");
+      });
+
+      const checkOption = () => {
+        if ($("#selector").val() === "student") {
+          $("#adminLogIn").css("display", "none");
+          $("#studentLogIn").css("display", "block");
+          return;
+        }
+        $("#studentLogIn").css("display", "none");
+        $("#adminLogIn").css("display", "block");
+      };
+    </script>
+  </body>
+</html>
