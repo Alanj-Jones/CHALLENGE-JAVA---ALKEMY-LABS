@@ -7,8 +7,8 @@ public class User {
     
     public User(){}
 
-    public User(Role role, int id) {
-        this.userId = id;
+    public User(Role role) {
+        // this.userId = id;
         this.userRole = role;
     }
 
