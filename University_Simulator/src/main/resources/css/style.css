@@ -2,23 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Courier New", Courier, monospace;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #14121e;
+  background-color: #121212;
 }
 
 .navbar {
   padding: 3px;
   display: flex;
-  background-color: rgb(169, 230, 49);
+  background-color: rgb(224, 255, 0);
   height: 6vh;
   width: 100vw;
   justify-content: center;
   align-content: space-around;
-  /* text-align: center;
-  flex */
 }
 
 .navbar a {
@@ -35,7 +34,7 @@ body {
 
 .navbar a:hover {
   background-color: #14121e;
-  color: rgb(169, 230, 49);
+  color: rgb(224, 255, 0);
   box-shadow: 3px 5px #413a66;
 }
 
@@ -51,17 +50,90 @@ body {
 
 .subdivision {
   margin: 0 5%;
-  width: 40%;
 }
 
 .content {
+  width: 50%;
   height: 50vh;
   background-color: white;
+  -webkit-animation: set-in-info 2s;
 }
 
+/* .box {
+  position: static;
+  width: 90%;
+  height: 90%;
+  border-style: solid;
+  border-color: #121212;
+  z-index: -1;
+} */
+
 .formContainer {
+  width: 30vw;
+  padding: 1%;
   height: 65vh;
-  background-color: red;
+  background-color: rgb(224, 255, 0);
+  -webkit-animation: set-in-form 1.5s;
+}
+
+.formContainer form {
+  position: relative;
+  padding: 5%;
+  height: 100%;
+  margin: 0;
+  background-color: rgb(224, 255, 0);
+  border-style: solid;
+  border-color: #121212;
+  border-width: 20px;
+  border-radius: 15px;
+}
+
+.userSelector {
+  display: flex;
+  margin: 10% auto;
+}
+
+.userSelector h3 {
+  float: left;
+}
+
+.userSelector select {
+  float: right;
+}
+
+.formContainer h2 {
+  text-align: center;
+  border-bottom: solid #121212;
+  border-width: 50%;
+}
+
+form button {
+  margin: auto;
+  width: 50%;
+  min-height: 10%;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  font-size: 1.6em;
+}
+
+.form-group {
+  margin-bottom: 10%;
+}
+
+.form-group label {
+  min-width: 50%;
+  font-size: 1.2em;
+}
+
+.form-group input {
+  width: 80%;
+  height: 5vh;
+  margin-bottom: 2%;
+  font-size: 1em;
+  padding: 2%;
+  color: white;
+  background-color: #121212e3;
 }
 
 footer {
@@ -72,4 +144,22 @@ footer {
   width: 100%;
   background-color: #413a66;
   color: white;
+}
+
+@-webkit-keyframes set-in-form {
+  0% {
+    -webkit-transform: translateX(15%);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes set-in-info {
+  0% {
+    -webkit-transform: translateY(-30%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
 }
