@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Universidad</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <script src="../scripts/jquery.js"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/scripts/jquery.js}"></script>
+    <script th:src="@{/scripts/mainPageScript.js}"></script>
   </head>
   <body>
     <!-- Barra Navegadora -->
@@ -32,7 +37,7 @@
           <li>Inscribase a materias</li>
         </ul>
 
-        <img src="../static/prog1.jpg" alt="" />
+        <img th:src="@{/img/prog1.jpg}" alt="" />
       </div>
 
       <!-- Formulario de Login -->
@@ -100,29 +105,5 @@
     <footer>
       <p>Universidad®</p>
     </footer>
-
-    <!-- 
-
-
-
-
-
- -->
-
-    <script>
-      $(document).ready(() => {
-        $("#adminLogIn").css("display", "none");
-      });
-
-      const checkOption = () => {
-        if ($("#selector").val() === "student") {
-          $("#adminLogIn").css("display", "none");
-          $("#studentLogIn").css("display", "block");
-          return;
-        }
-        $("#studentLogIn").css("display", "none");
-        $("#adminLogIn").css("display", "block");
-      };
-    </script>
   </body>
 </html>
