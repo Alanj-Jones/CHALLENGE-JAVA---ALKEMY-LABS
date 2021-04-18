@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Campus Universidad</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
-    <script th:src="@{/scripts/jquery.js}"></script>
-    <script th:src="@{/scripts/mainPageScript.js}"></script>
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/mainPageScript.js}"></script>
   </head>
   <body>
     <!-- Barra Navegadora -->
@@ -42,7 +42,7 @@
 
       <!-- Formulario de Login -->
       <div class="subdivision formContainer">
-        <form action="#">
+        <form th:action="@{/login}" method="POST" >
           <h2>Iniciar Sesion</h2>
           <div class="userSelector">
             <h4>Ingresar como:</h4>
@@ -55,24 +55,29 @@
             <!-- Login de Alumnos -->
             <div id="studentLogIn">
               <div class="form-group">
-                <label for="studId">Legajo</label>
+                <label for="username">Legajo</label>
                 <br />
                 <input
                   type="number"
-                  name="studId"
+                  name="username"
                   placeholder="Example: 102443"
+                  id="username"
                 />
               </div>
               <div class="form-group">
-                <label for="dni">DNI</label>
+                <label for="password">DNI</label>
                 <br />
                 <input
                   type="number"
-                  name="dni"
+                  name="password"
                   max="99999999"
+                  id="dni"
                   placeholder="Example: 42103275"
                 />
               </div>
+
+              <div class="log-info" th:if="${param.error}">Credenciales invalidas!</div>
+              <div class="log-info" th:if="${param.logout}">Has salido!</div>
             </div>
 
             <!-- Login de Administradores -->

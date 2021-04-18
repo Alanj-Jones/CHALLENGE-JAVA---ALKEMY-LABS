@@ -1,4 +1,6 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.temp;
+
+import com.challenge.alkemy.User;
 
 public class Admin extends User {
 
@@ -8,7 +10,7 @@ public class Admin extends User {
     public Admin() {}
 
     public Admin(String password, String username) {
-        super(Role.ADMIN);
+        // super(Role.ADMIN);
         this.password = password;
         this.username= username;
     }

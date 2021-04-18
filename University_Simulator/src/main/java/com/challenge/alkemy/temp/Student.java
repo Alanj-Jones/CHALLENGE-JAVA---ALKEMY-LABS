@@ -1,4 +1,6 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.temp;
+
+import com.challenge.alkemy.User;
 
 public class Student extends User {
     
@@ -10,7 +12,7 @@ public class Student extends User {
     public Student() {}
 
     public Student(int dni, String name, String email, int id) {
-        super(Role.STUDENT);
+        // super(Role.STUDENT);
         this.dni = dni ;
         this.studentMail = email;
         this.studentName = name;
