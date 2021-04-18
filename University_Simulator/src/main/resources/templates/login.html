@@ -55,23 +55,21 @@
             <!-- Login de Alumnos -->
             <div id="studentLogIn">
               <div class="form-group">
-                <label for="username">Legajo</label>
+                <label id="studLabelUser">Legajo</label>
                 <br />
                 <input
                   type="number"
-                  name="username"
                   placeholder="Example: 102443"
-                  id="username"
+                  id="studInputUser"
                 />
               </div>
               <div class="form-group">
-                <label for="password">DNI</label>
+                <label id="studLabelPass">DNI</label>
                 <br />
                 <input
                   type="number"
-                  name="password"
                   max="99999999"
-                  id="dni"
+                  id="studInputPass"
                   placeholder="Example: 42103275"
                 />
               </div>
@@ -83,19 +81,19 @@
             <!-- Login de Administradores -->
             <div id="adminLogIn">
               <div class="form-group">
-                <label for="adminUser">Usuario</label>
+                <label id="adminLabelUser">Usuario</label>
                 <input
                   type="text"
-                  name="adminUser"
                   placeholder="Example: Alan4123"
+                  id="adminInputUser"
                 />
               </div>
 
               <div class="form-group">
-                <label for="password">Contraseña</label>
-                <input
+                <label id="adminLabelPass">Contraseña</label>
+                <input 
+                  id="adminInputPass"
                   type="password"
-                  name="password"
                   placeholder="***********"
                 />
               </div>
