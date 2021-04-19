@@ -166,6 +166,11 @@ footer {
   text-align: center;
 }
 
+.log-info {
+  color: red;
+  margin-bottom: 5%;
+}
+
 @-webkit-keyframes set-in-form {
   0% {
     -webkit-transform: translateX(15%);
