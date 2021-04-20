@@ -1,26 +1,27 @@
 <!DOCTYPE html>
-<html 
+<html
   lang="en"
   xmlns="http://www.w3.org/1999/xhtml"
   xmlns:th="http://www.thymeleaf.org"
   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springSecurity5"
-
 >
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link th:href="@{css/navbar.css}" rel="stylesheet" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
   </head>
   <body>
+    <div th:insert="navBar :: menu"></div>
     <h1>Ha iniciado sesion correctamente!</h1>
     <div sec:authorize="hasAuthority('STUDENT')">
       Bienvenido user
       <span sec:authentication="name"></span>
     </div>
     <span sec:authentication="principal.authorities"></span>
-    <a th:href="@{/logout}">
-      SALIR
-    </a>
+    <a th:href="@{/logout}"> SALIR </a>
   </body>
 </html>

@@ -14,18 +14,8 @@
     <script th:src="@{/js/mainPageScript.js}"></script>
   </head>
   <body>
-    <!-- Barra Navegadora -->
-    <div>
-      <nav class="navbar">
-        <a href="#">Test1</a>
-        <a href="#">Test2</a>
-        <a href="#">Test3</a>
-        <a href="#">Test4</a>
-      </nav>
-    </div>
-
     <header>
-      <h1>¡Bienvenido al campus virtual!</h1>
+      <h1>Bienvenido al campus virtual</h1>
     </header>
     <!-- Contenido de la Pagina -->
     <div class="container">
@@ -42,7 +32,7 @@
 
       <!-- Formulario de Login -->
       <div class="subdivision formContainer">
-        <form th:action="@{/login}" method="POST" >
+        <form th:action="@{/login}" method="POST">
           <h2>Iniciar Sesion</h2>
           <div class="userSelector">
             <h4>Ingresar como:</h4>
@@ -74,7 +64,9 @@
                 />
               </div>
               <!-- Advertencias! -->
-              <div class="log-info" th:if="${param.error}">Credenciales invalidas!</div>
+              <div class="log-info" th:if="${param.error}">
+                Credenciales invalidas!
+              </div>
               <div class="log-info" th:if="${param.logout}">Has salido!</div>
             </div>
 
@@ -91,7 +83,7 @@
 
               <div class="form-group">
                 <label id="adminLabelPass">Contraseña</label>
-                <input 
+                <input
                   id="adminInputPass"
                   type="password"
                   placeholder="***********"

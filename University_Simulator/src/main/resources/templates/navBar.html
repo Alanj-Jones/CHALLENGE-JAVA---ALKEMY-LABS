@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springSecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <!-- Barra Navegadora -->
+    <div th:fragment="menu">
+      <nav class="navbar" id="navbar">
+        <div>
+          <a href="/menu" class="logo-img">
+            <img th:src="@{/static/img/NAME.JPG}" alt="~Universidad~" />
+          </a>
+        </div>
+        <a
+          href="/student"
+          sec:authorize="hasAuthority('STUDENT')"
+          class="menu-item"
+        >
+          <span> Mis materias </span>
+        </a>
+        <a href="/subjects" sec:authorize="isAuthenticated()" class="menu-item">
+          <span> Materias disponibles </span>
+        </a>
+
+        <a
+          href="/addSubject"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span>Agregar materia</span>
+        </a>
+
+        <a
+          href="/professors"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span>Profesores</span>
+        </a>
+        <a
+          href="/addProfessor"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span> Agregar Profesor </span>
+        </a>
+        <a
+          href="javascript:void(0);"
+          id="icon"
+          class="icon"
+          onclick="changeState()"
+          >&#9776;</a
+        >
+      </nav>
+    </div>
+  </body>
+</html>
