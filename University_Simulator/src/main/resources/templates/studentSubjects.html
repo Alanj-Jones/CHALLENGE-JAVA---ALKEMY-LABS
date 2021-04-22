@@ -12,8 +12,12 @@
     <title>Mis materias</title>
     <!-- temp styles -->
     <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/mySubjects.css" />
+    <link rel="stylesheet" href="../static/css/subjects.css" />
     <!--  -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/subjects.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
   </head>
   <body>
     <div th:insert="navBar :: menu"></div>

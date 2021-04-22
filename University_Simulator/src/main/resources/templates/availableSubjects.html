@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springSecurity5"
+>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,62 +13,15 @@
     <title>Materias Disponibles</title>
     <!-- temp styles -->
     <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/mySubjects.css" />
+    <link rel="stylesheet" href="../static/css/subjects.css" />
+    <!--  -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/subjects.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
   </head>
   <body>
     <div th:insert="navBar :: menu"></div>
-
-    <!--  -->
-    <div th:fragment="menu">
-      <nav class="navbar" id="navbar">
-        <div>
-          <a href="/menu" class="logo-img">
-            <img th:src="@{/static/img/NAME.JPG}" alt="~Universidad~" />
-          </a>
-        </div>
-        <a
-          href="/student"
-          sec:authorize="hasAuthority('STUDENT')"
-          class="menu-item"
-        >
-          <span> Mis materias </span>
-        </a>
-        <a href="/subjects" sec:authorize="isAuthenticated()" class="menu-item">
-          <span> Materias disponibles </span>
-        </a>
-
-        <a
-          href="/addSubject"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span>Agregar materia</span>
-        </a>
-
-        <a
-          href="/professors"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span>Profesores</span>
-        </a>
-        <a
-          href="/addProfessor"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span> Agregar Profesor </span>
-        </a>
-        <a
-          href="javascript:void(0);"
-          id="icon"
-          class="icon"
-          onclick="changeState()"
-          >&#9776;</a
-        >
-      </nav>
-    </div>
-    <!--  -->
 
     <h1 class="title">Materias Disponibles:</h1>
     <table class="subjects">
@@ -79,8 +38,7 @@
           <td id="name"><div class="scrollable">Programacion I</div></td>
           <td id="desc" colspan="2">
             <div class="scrollable">
-              Introduccion a la programacion y paradigma de objetos asi que dale
-              like y suscribite crack
+              Introduccion a la programacion y paradigma de objetos.
             </div>
           </td>
           <td id="prof"><div class="scrollable">Diana cicciolini</div></td>
