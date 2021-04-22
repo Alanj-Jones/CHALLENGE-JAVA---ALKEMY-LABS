@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springSecurity5"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mis materias</title>
+    <!-- temp styles -->
+    <link rel="stylesheet" href="../static/css/navbar.css" />
+    <link rel="stylesheet" href="../static/css/subjects.css" />
+    <!--  -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/subjects.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
+  </head>
+  <body>
+    <div th:insert="navBar :: menu"></div>
+
+    <h1 class="title">Mis Materias:</h1>
+    <table class="subjects">
+      <thead class="subject-headers">
+        <th id="code">CODIGO</th>
+        <th id="name">NOMBRE</th>
+        <th id="desc" colspan="2">DESCRIPCION</th>
+        <th id="prof">PROFESOR</th>
+        <th id="time">HORARIO</th>
+        <th id="action">Accion</th>
+      </thead>
+      <tbody class="subject-details">
+        <tr>
+          <td id="code"><div class="scrollable">142</div></td>
+          <td id="name"><div class="scrollable">Programacion I</div></td>
+          <td id="desc" colspan="2">
+            <div class="scrollable">
+              Introduccion a la programacion y paradigma de objetos asi que dale
+              like y suscribite crack
+            </div>
+          </td>
+          <td id="prof"><div class="scrollable">Diana cicciolini</div></td>
+          <td id="time"><div class="scrollable">19-21</div></td>
+          <td id="action"><button>DESUSCRIBIRSE</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- FUTURA IMPLEMENTACION: POP UP CON LA INFORMACION         
+    <div class="pop-info">
+    <div class="close-tab"><button>X</button></div>
+    <div class="info-item">
+        Codigo: asdASDasdasdf asfw asfwasfwasfw asfwsasfwasfwasfwasfwas
+    </div>
+    <div class="info-item">Nombre:</div>
+    <div class="info-item">Descripcion:</div>
+    <div class="info-item">Profesor:</div>
+    <div class="info-item">Horario:</div>
+    <div class="info-item action-container">
+        <button>DESUSCRIBIRSE</button>
+    </div>
+    </div> -->
+  </body>
+</html>
