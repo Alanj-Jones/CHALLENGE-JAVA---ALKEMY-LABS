@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Materias Disponibles</title>
+    <!-- temp styles -->
+    <link rel="stylesheet" href="../static/css/navbar.css" />
+    <link rel="stylesheet" href="../static/css/mySubjects.css" />
+  </head>
+  <body>
+    <div th:insert="navBar :: menu"></div>
+
+    <!--  -->
+    <div th:fragment="menu">
+      <nav class="navbar" id="navbar">
+        <div>
+          <a href="/menu" class="logo-img">
+            <img th:src="@{/static/img/NAME.JPG}" alt="~Universidad~" />
+          </a>
+        </div>
+        <a
+          href="/student"
+          sec:authorize="hasAuthority('STUDENT')"
+          class="menu-item"
+        >
+          <span> Mis materias </span>
+        </a>
+        <a href="/subjects" sec:authorize="isAuthenticated()" class="menu-item">
+          <span> Materias disponibles </span>
+        </a>
+
+        <a
+          href="/addSubject"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span>Agregar materia</span>
+        </a>
+
+        <a
+          href="/professors"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span>Profesores</span>
+        </a>
+        <a
+          href="/addProfessor"
+          sec:authorize="hasAuthority('ADMIN')"
+          class="menu-item"
+        >
+          <span> Agregar Profesor </span>
+        </a>
+        <a
+          href="javascript:void(0);"
+          id="icon"
+          class="icon"
+          onclick="changeState()"
+          >&#9776;</a
+        >
+      </nav>
+    </div>
+    <!--  -->
+
+    <h1 class="title">Materias Disponibles:</h1>
+    <table class="subjects">
+      <thead class="subject-headers">
+        <th id="name">NOMBRE</th>
+        <th id="desc" colspan="2">DESCRIPCION</th>
+        <th id="prof">PROFESOR</th>
+        <th id="time">HORARIO</th>
+        <th id="availability">Cupos Disponibles</th>
+        <th id="action">Accion</th>
+      </thead>
+      <tbody class="subject-details">
+        <tr>
+          <td id="name"><div class="scrollable">Programacion I</div></td>
+          <td id="desc" colspan="2">
+            <div class="scrollable">
+              Introduccion a la programacion y paradigma de objetos asi que dale
+              like y suscribite crack
+            </div>
+          </td>
+          <td id="prof"><div class="scrollable">Diana cicciolini</div></td>
+          <td id="time"><div class="scrollable">19-21</div></td>
+          <td id="availability"><div class="scrollable">100</div></td>
+          <td id="action"><button>INSCRIBIRSE</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

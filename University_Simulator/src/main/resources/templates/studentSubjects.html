@@ -13,60 +13,11 @@
     <!-- temp styles -->
     <link rel="stylesheet" href="../static/css/navbar.css" />
     <link rel="stylesheet" href="../static/css/mySubjects.css" />
+    <!--  -->
   </head>
   <body>
     <div th:insert="navBar :: menu"></div>
-    <!--  -->
-    <div th:fragment="menu">
-      <nav class="navbar" id="navbar">
-        <div>
-          <a href="/menu" class="logo-img">
-            <img th:src="@{/static/img/NAME.JPG}" alt="~Universidad~" />
-          </a>
-        </div>
-        <a
-          href="/student"
-          sec:authorize="hasAuthority('STUDENT')"
-          class="menu-item"
-        >
-          <span> Mis materias </span>
-        </a>
-        <a href="/subjects" sec:authorize="isAuthenticated()" class="menu-item">
-          <span> Materias disponibles </span>
-        </a>
 
-        <a
-          href="/addSubject"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span>Agregar materia</span>
-        </a>
-
-        <a
-          href="/professors"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span>Profesores</span>
-        </a>
-        <a
-          href="/addProfessor"
-          sec:authorize="hasAuthority('ADMIN')"
-          class="menu-item"
-        >
-          <span> Agregar Profesor </span>
-        </a>
-        <a
-          href="javascript:void(0);"
-          id="icon"
-          class="icon"
-          onclick="changeState()"
-          >&#9776;</a
-        >
-      </nav>
-    </div>
-    <!--  -->
     <h1 class="title">Mis Materias:</h1>
     <table class="subjects">
       <thead class="subject-headers">
@@ -91,23 +42,22 @@
           <td id="time"><div class="scrollable">19-21</div></td>
           <td id="action"><button>DESUSCRIBIRSE</button></td>
         </tr>
-
-        
-        <!-- FUTURA IMPLEMENTACION: POP UP CON LA INFORMACION         
-        <div class="pop-info">
-          <div class="close-tab"><button>X</button></div>
-          <div class="info-item">
-            Codigo: asdASDasdasdf asfw asfwasfwasfw asfwsasfwasfwasfwasfwas
-          </div>
-          <div class="info-item">Nombre:</div>
-          <div class="info-item">Descripcion:</div>
-          <div class="info-item">Profesor:</div>
-          <div class="info-item">Horario:</div>
-          <div class="info-item action-container">
-            <button>DESUSCRIBIRSE</button> -->
-          </div>
-        </div>
       </tbody>
     </table>
+
+    <!-- FUTURA IMPLEMENTACION: POP UP CON LA INFORMACION         
+    <div class="pop-info">
+    <div class="close-tab"><button>X</button></div>
+    <div class="info-item">
+        Codigo: asdASDasdasdf asfw asfwasfwasfw asfwsasfwasfwasfwasfwas
+    </div>
+    <div class="info-item">Nombre:</div>
+    <div class="info-item">Descripcion:</div>
+    <div class="info-item">Profesor:</div>
+    <div class="info-item">Horario:</div>
+    <div class="info-item action-container">
+        <button>DESUSCRIBIRSE</button>
+    </div>
+    </div> -->
   </body>
 </html>
