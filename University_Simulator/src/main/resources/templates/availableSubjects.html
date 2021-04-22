@@ -12,10 +12,12 @@
     <title>Materias Disponibles</title>
     <!-- temp styles -->
     <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/subjects.css" />
+    <link rel="stylesheet" href="../static/css/table.css" />
+    <link rel="stylesheet" href="../static/css/subject.css" />
     <!--  -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
-    <link rel="stylesheet" th:href="@{/css/subjects.css}" />
+    <link rel="stylesheet" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" th:href="@{/css/subject.css}" />
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/navBarScript.js}"></script>
   </head>
@@ -23,8 +25,8 @@
     <div th:insert="navBar :: menu"></div>
 
     <h1 class="title">Materias Disponibles:</h1>
-    <table class="subjects">
-      <thead class="subject-headers">
+    <table class="table-container">
+      <thead class="table-header">
         <th id="name">NOMBRE</th>
         <th id="desc" colspan="2">DESCRIPCION</th>
         <th id="prof">PROFESOR</th>
@@ -32,7 +34,7 @@
         <th id="availability">Cupos Disponibles</th>
         <th id="action">Accion</th>
       </thead>
-      <tbody class="subject-details">
+      <tbody class="table-body">
         <tr>
           <td id="name"><div class="scrollable">Programacion I</div></td>
           <td id="desc" colspan="2">
