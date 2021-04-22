@@ -7,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class WebController {
+public class LoginController {
 
     @GetMapping("/")
     public String mainPage() {
@@ -32,20 +32,12 @@ public class WebController {
         return "redirect:login";
     }
 
-    // @GetMapping("/logout")
-    // public String logout() {
-
-    //     return "login";
-    // }
-
     private boolean isAuthenticated() {
-    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    if (authentication == null || AnonymousAuthenticationToken.class.
-      isAssignableFrom(authentication.getClass())) {
-        return false;
-    }
-    return authentication.isAuthenticated();
-}
-    
-    
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || AnonymousAuthenticationToken.class.isAssignableFrom(authentication.getClass())) {
+            return false;
+        }
+        return authentication.isAuthenticated();
+        }
+        
 }
