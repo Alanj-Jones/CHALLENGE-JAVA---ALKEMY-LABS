@@ -1,4 +1,4 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.controllers;
 
 import org.springframework.stereotype.Controller;
 
