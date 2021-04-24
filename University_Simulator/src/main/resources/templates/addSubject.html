@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springSecurity5"
+>
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -7,48 +12,47 @@
     <title>Nuevo Profesor</title>
     <link rel="stylesheet" href="../static/css/form.css" />
     <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/addProfessor.css" />
+    <link rel="stylesheet" href="../static/css/addSubject.css" />
     <script src="../static/js/jquery.js"></script>
     <script src="../static/js/navBarScript.js"></script>
 
     <!-- th styles  -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
     <link rel="stylesheet" th:href="@{/css/form.css}" />
-    <link rel="stylesheet" th:href="@{/css/addprofessor.css}" />
+    <link rel="stylesheet" th:href="@{/css/addSubject.css}" />
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/navBarScript.js}"></script>
   </head>
   <body>
     <div th:insert="navbar :: menu"></div>
-    <h1 class="title">Añadir nuevo profesor</h1>
+    <h1 class="title">Añadir nueva materia</h1>
 
     <form action="" class="form-container">
-      <h2>Profesor/a</h2>
+      <h2>Materia</h2>
       <div class="form-group">
-        <label for="fname">Nombre:</label>
+        <label for="name">Nombre:</label>
         <br />
-        <input type="text" name="fname" />
+        <input type="text" name="name" />
       </div>
 
       <div class="form-group">
-        <label for="lname">Apellido:</label>
-        <br />
-        <input type="text" name="lname" />
+        <label for="start_time">Comienzo:</label>
+        <input type="text" name="start_time" />
+        <label for="end_time">Finalizacion:</label>
+        <input type="text" name="end_time" />
       </div>
 
       <div class="form-group">
-        <label for="dni">DNI:</label>
+        <label for="prof">Profesor:</label>
         <br />
-        <input type="text" name="dni" id="" />
+        <select name="prof" id="">
+          <option value=""></option>
+        </select>
       </div>
 
       <div class="form-group">
-        <label for="active">
-          <select name="active" id="">
-            <option value="1">Activo</option>
-            <option value="0">Inactivo</option>
-          </select>
-        </label>
+        <label for="capacity">Cupo maximo:</label>
+        <input type="text" name="capacity" id="" />
       </div>
 
       <button>Ingresar</button>
