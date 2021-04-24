@@ -16,7 +16,11 @@
   align-content: space-around;
 }
 
-.navbar .logo-img {
+.navbar .logo-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5vh;
 }
 
 .navbar .menu-item {

@@ -12,7 +12,7 @@
     <!--  -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
     <link rel="stylesheet" th:href="@{/css/table.css}" />
-    <link rel="stylesheet" th:href="@{/css/subject.css}" />
+    <link rel="stylesheet" th:href="@{/css/professor.css}" />
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/navBarScript.js}"></script>
   </head>
@@ -23,13 +23,21 @@
     <table class="table-container">
       <thead class="table-header">
         <th id="code">ID</th>
-        <th id="name">NOMBRE</th>
+        <th id="first-name">NOMBRE</th>
+        <th id="last-name">APELLIDO</th>
+        <th id="document">DNI</th>
         <th id="action" colspan="2">Accion</th>
       </thead>
       <tbody class="table-body">
         <tr>
           <td id="code"><div class="scrollable">142</div></td>
-          <td id="name"><div class="scrollable">osvaldo rey tercero</div></td>
+          <td id="first-name">
+            <div class="scrollable">Osvaldo</div>
+          </td>
+          <td id="last-name"><div class="scrollable">Del Rey</div></td>
+          <td id="document">
+            <div class="scrollable">25534432</div>
+          </td>
           <td id="action"><button>MODIFICAR</button></td>
           <td id="action"><button>ELIMINAR</button></td>
         </tr>
