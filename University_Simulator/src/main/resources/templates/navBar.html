@@ -20,7 +20,7 @@
           </a>
         </div>
         <a
-          href="/student"
+          href="/Student/subjects"
           sec:authorize="hasAuthority('STUDENT')"
           class="menu-item"
         >
@@ -31,7 +31,7 @@
         </a>
 
         <a
-          href="/addSubject"
+          href="/Admin/addSubject"
           sec:authorize="hasAuthority('ADMIN')"
           class="menu-item"
         >
@@ -39,14 +39,14 @@
         </a>
 
         <a
-          href="/professors"
+          href="/Admin/professors"
           sec:authorize="hasAuthority('ADMIN')"
           class="menu-item"
         >
           <span>Profesores</span>
         </a>
         <a
-          href="/addProfessor"
+          href="/Admin/addProfessor"
           sec:authorize="hasAuthority('ADMIN')"
           class="menu-item"
         >

@@ -30,22 +30,37 @@
         <th id="name">NOMBRE</th>
         <th id="desc" colspan="2">DESCRIPCION</th>
         <th id="prof">PROFESOR</th>
-        <th id="time">HORARIO</th>
-        <th id="availability">Cupos Disponibles</th>
-        <th id="action">Accion</th>
+        <th id="time">INICIO</th>
+        <th id="time">FINAL</th>
+        <th id="availability">CUPOS</th>
+        <th id="action">ACCION</th>
       </thead>
       <tbody class="table-body">
-        <tr>
-          <td id="name"><div class="scrollable">Programacion I</div></td>
-          <td id="desc" colspan="2">
-            <div class="scrollable">
-              Introduccion a la programacion y paradigma de objetos.
-            </div>
+        <tr th:each="subject : ${subjectList}">
+          <td id="name">
+            <div class="scrollable" th:text="${subject.name}"></div>
           </td>
-          <td id="prof"><div class="scrollable">Diana cicciolini</div></td>
-          <td id="time"><div class="scrollable">19-21</div></td>
-          <td id="availability"><div class="scrollable">100</div></td>
-          <td id="action"><button>INSCRIBIRSE</button></td>
+          <td id="desc" colspan="2">
+            <div class="scrollable" th:text="${subject.description}"></div>
+          </td>
+          <td id="prof">
+            <div class="scrollable" th:text="${subject.professor_id}"></div>
+          </td>
+          <td id="start_time">
+            <div class="scrollable" th:text="${subject.start_time}"></div>
+          </td>
+          <td id="end_time">
+            <div class="scrollable" th:text="${subject.end_time}"></div>
+          </td>
+          <td id="availability">
+            <div class="scrollable" th:text="${subject.capacity}"></div>
+          </td>
+          <td id="action" sec:authorize="hasAuthority('STUDENT')">
+            <button>INSCRIBIRSE</button>
+          </td>
+          <td id="action" sec:authorize="hasAuthority('ADMIN')">
+            <button>EDITAR</button>
+          </td>
         </tr>
       </tbody>
     </table>

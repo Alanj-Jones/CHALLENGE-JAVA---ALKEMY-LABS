@@ -21,13 +21,23 @@ body {
 
 .form-container {
   background-color: #c4c4c4;
-  height: 60vh;
+  height: 70vh;
   width: 30%;
-  margin: 5% auto;
+  margin: 2.5% auto;
   border-style: solid;
   border-color: rgb(255, 255, 0);
   padding: 5px;
   display: block;
+}
+.time-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.time-container input {
+  width: 60% !important;
 }
 
 .form-container h2 {
