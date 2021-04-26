@@ -1,5 +1,10 @@
 package com.challenge.alkemy.controllers;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import com.challenge.alkemy.Professor;
 import com.challenge.alkemy.ProfessorRepository;
 import com.challenge.alkemy.Subject;
@@ -23,6 +28,13 @@ public class AdminController {
     @GetMapping("/Admin/professors")
     private String professors(Model model) {
         model.addAttribute("professors", professorRepo.findAll());
+        // Iterable<Professor> profList = professorRepo.findAll();
+        // Map<Integer,String> pair = new HashMap<>();
+        // for(Professor p : profList) {
+        //     pair.put(p.getProfessorId(), p.getFirstName() + " "+ p.getLastName());
+        // }
+        // // th:text="${prof.get(professor.professorId)}"
+        // model.addAttribute("pair", pair);
         return "professorList";
     }
     
