@@ -32,26 +32,46 @@
       th:action="@{/Admin/subjectCreated}"
       class="form-container"
       method="POST"
-      th:object="${subject}"
+      th:object="${subj}"
     >
       <h2>Materia</h2>
       <div class="form-group">
         <label for="name">Nombre:</label>
         <br />
         <input type="text" name="name" required />
+        <p
+          class="log-info"
+          th:if="${#fields.hasErrors('name')}"
+          th:errors="*{name}"
+        ></p>
       </div>
 
       <div class="form-group">
         <label for="description">Descripcion:</label>
         <br />
         <input type="text" name="description" required />
+        <p
+          class="log-info"
+          th:if="${#fields.hasErrors('description')}"
+          th:errors="*{description}"
+        ></p>
       </div>
 
       <div class="form-group time-container">
         <label for="start_time">Comienzo:</label>
         <input type="time" name="start_time" required />
+        <p
+          class="log-info"
+          th:if="${#fields.hasErrors('start_time')}"
+          th:errors="*{start_time}"
+        ></p>
         <label for="end_time">Finalizacion:</label>
         <input type="time" name="end_time" required />
+        <p
+          class="log-info"
+          th:if="${#fields.hasErrors('end_time')}"
+          th:errors="*{end_time}"
+        ></p>
       </div>
 
       <div class="form-group">
@@ -70,6 +90,11 @@
       <div class="form-group">
         <label for="capacity">Cupo maximo:</label>
         <input type="text" name="capacity" id="availability" required />
+        <p
+          class="log-info"
+          th:if="${#fields.hasErrors('capacity')}"
+          th:errors="*{capacity}"
+        ></p>
       </div>
 
       <button>Ingresar</button>

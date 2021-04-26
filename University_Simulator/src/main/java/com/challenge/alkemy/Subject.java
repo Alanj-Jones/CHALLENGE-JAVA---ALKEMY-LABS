@@ -16,6 +16,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "subject")
@@ -25,22 +28,29 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer subjectId;
 
+    @NotNull
+    @Size(min = 2, max = 30)
     @Column(name = "name")    
     private String name;
 
+    @NotNull
     @Column(name = "description")
     private String description;
 
+    @NotNull
+    @Min(1)
     @Column(name = "capacity")
     private int capacity;
 
+    @NotNull
     @Column(name = "start_time")
     private LocalTime start_time;
 
+    @NotNull
     @Column(name = "end_time")
     private LocalTime end_time;
 
-    // @ForeignKey(name = "professor_id")
+    @NotNull
     @Column(name = "professor_name")
     private String professor_name;
 

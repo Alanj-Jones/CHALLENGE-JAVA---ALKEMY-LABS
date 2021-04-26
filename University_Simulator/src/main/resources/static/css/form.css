@@ -67,3 +67,8 @@ body {
   width: 50%;
   height: 10%;
 }
+
+.log-info {
+  color: red;
+  margin-bottom: 5%;
+}
