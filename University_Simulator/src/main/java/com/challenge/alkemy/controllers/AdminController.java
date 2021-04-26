@@ -1,5 +1,7 @@
 package com.challenge.alkemy.controllers;
 
+import com.challenge.alkemy.Professor;
+import com.challenge.alkemy.ProfessorRepository;
 import com.challenge.alkemy.Subject;
 import com.challenge.alkemy.SubjectRepository;
 
@@ -15,8 +17,12 @@ public class AdminController {
     @Autowired
     SubjectRepository subjectRepo;
 
+    @Autowired
+    ProfessorRepository professorRepo;
+
     @GetMapping("/Admin/professors")
-    private String professors() {
+    private String professors(Model model) {
+        model.addAttribute("professors", professorRepo.findAll());
         return "professorList";
     }
     
@@ -24,9 +30,16 @@ public class AdminController {
     private String newProfessor() {
         return "addProfessor";
     }
+    
+    @PostMapping("/Admin/professorCreated")
+    private String professorCreation(Professor professor) {
+        professorRepo.save(professor);
+        return "redirect:/Admin/professors";
+    }
 
     @GetMapping("/Admin/addSubject")
-    private String newSubject() {
+    private String newSubject(Model model) {
+        model.addAttribute("professors", professorRepo.findAll());
         return "addSubject";
     }
 
