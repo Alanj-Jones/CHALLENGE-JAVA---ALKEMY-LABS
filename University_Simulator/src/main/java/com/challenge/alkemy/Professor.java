@@ -6,6 +6,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 @Entity
 @Table(name = "professor")
@@ -15,15 +22,23 @@ public class Professor {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer professorId;
 
+    @NotNull
+    @Size(min = 2, max = 30)
     @Column(name = "first_name")
     private String firstName;
     
+    @NotNull
+    @Size(min = 2, max = 30)
     @Column(name = "last_name")
     private String lastName;
 
+    @NotNull
+	@Min(10000000)
+    @Max(99999999)
     @Column(name = "document")
     private int document;
 
+    @NotNull
     @Column(name = "is_active")
     private boolean isActive;
 
