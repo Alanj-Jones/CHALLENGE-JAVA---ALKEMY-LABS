@@ -22,31 +22,36 @@
     <div th:insert="navbar :: menu"></div>
     <h1 class="title">Añadir nuevo profesor</h1>
 
-    <form action="" class="form-container">
+    <form
+      th:action="@{/Admin/professorCreated}"
+      class="form-container"
+      method="POST"
+      th:object="${professor}"
+    >
       <h2>Profesor/a</h2>
       <div class="form-group">
-        <label for="fname">Nombre:</label>
+        <label for="firstName">Nombre:</label>
         <br />
-        <input type="text" name="fname" />
+        <input type="text" name="firstName" required />
       </div>
 
       <div class="form-group">
-        <label for="lname">Apellido:</label>
+        <label for="lastName">Apellido:</label>
         <br />
-        <input type="text" name="lname" />
+        <input type="text" name="lastName" required />
       </div>
 
       <div class="form-group">
-        <label for="dni">DNI:</label>
+        <label for="document">DNI:</label>
         <br />
-        <input type="text" name="dni" id="" />
+        <input type="text" name="document" required />
       </div>
 
       <div class="form-group">
-        <label for="active">
-          <select name="active" id="">
+        <label for="isActive">
+          <select name="isActive">
             <option value="1">Activo</option>
-            <option value="0">Inactivo</option>
+            <option value="0" selected>Inactivo</option>
           </select>
         </label>
       </div>
