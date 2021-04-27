@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profesores</title>
+    <!-- temp styles -->
+    <link rel="stylesheet" href="../static/css/navbar.css" />
+    <link rel="stylesheet" href="../static/css/table.css" />
+    <link rel="stylesheet" href="../static/css/professor.css" />
+    <!--  -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" th:href="@{/css/professor.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
+  </head>
+  <body>
+    <div th:insert="navBar :: menu"></div>
+
+    <h1 class="title">Profesores</h1>
+    <table class="table-container">
+      <thead class="table-header">
+        <th id="first-name">NOMBRE</th>
+        <th id="last-name">APELLIDO</th>
+        <th id="document">DNI</th>
+        <th id="active">Activo</th>
+        <th id="action" colspan="2">Accion</th>
+      </thead>
+      <tbody class="table-body">
+        <tr th:each="professor : ${professors}">
+          <td id="first-name">
+            <div class="scrollable" th:text="${professor.firstName}"></div>
+          </td>
+          <td id="last-name">
+            <div class="scrollable" th:text="${professor.lastName}"></div>
+          </td>
+          <td id="document">
+            <div class="scrollable" th:text="${professor.document}"></div>
+          </td>
+          <td id="active">
+            <div
+              class="scrollable"
+              th:text="${professor.isActive? 'Activo' : 'Inactivo'}"
+            ></div>
+          </td>
+          <td id="action">
+            <button th:value="${professor.professorId}">MODIFICAR</button>
+          </td>
+          <td id="action">
+            <button th:value="${professor.professorId}">ELIMINAR</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

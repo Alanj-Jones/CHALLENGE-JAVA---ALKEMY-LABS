@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #121212;
+}
+
+.title-color {
+  color: rgb(255, 255, 0) !important;
+  font-size: 20em;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  margin: 5% 0;
+  align-content: flex-end;
+  align-items: center;
+}
+
+header {
+  font-size: 1.5em;
+  position: absolute;
+  top: 3%;
+  left: 5%;
+  color: whitesmoke;
+  text-decoration: dashed;
+  -webkit-animation: text-appear 2s;
+  text-shadow: 1px 1px 1px #919191, 1px 2px 1px #919191, 1px 3px 1px #919191,
+    1px 4px 1px #919191, 1px 5px 1px #919191, 1px 6px 1px #919191;
+}
+
+header::first-letter {
+  color: rgb(255, 255, 0);
+  font-size: 1.75em;
+}
+
+.subdivision {
+  margin: 1% 5%;
+}
+
+.content {
+  width: 50%;
+  height: 50vh;
+  color: white;
+  -webkit-text-stroke: 0.25px rgb(255, 255, 0);
+  -webkit-animation: text-appear 2.5s;
+  /* -webkit-animation: set-in-info 2s; */
+}
+
+.content ul {
+  margin: 2.5% 5%;
+}
+
+.content img {
+  margin: 3% 0;
+  position: absolute;
+  height: 50%;
+  width: 55%;
+  opacity: 0.9;
+  -webkit-animation: set-in-info 2.5s;
+  border-color: rgb(224, 255, 0);
+  border-style: solid;
+  border-width: thin;
+}
+
+.formContainer {
+  width: 30vw;
+  padding: 1%;
+  height: 65vh;
+  background-color: rgb(224, 255, 0);
+  -webkit-animation: set-in-form 1.5s;
+}
+
+.formContainer form {
+  position: relative;
+  padding: 5%;
+  height: 100%;
+  margin: 0;
+  background-color: rgb(224, 255, 0);
+  border-style: solid;
+  border-color: #121212;
+  border-width: 20px;
+  border-radius: 15px;
+}
+
+.userSelector {
+  display: flex;
+  margin: 10% auto;
+}
+
+.userSelector h3 {
+  float: left;
+}
+
+.userSelector select {
+  float: right;
+}
+
+.formContainer h2 {
+  text-align: center;
+  border-bottom: solid #121212;
+  border-width: 50%;
+}
+
+form button {
+  margin: auto;
+  width: 50%;
+  min-height: 10%;
+  position: absolute;
+  bottom: 10%;
+  left: 25%;
+  font-size: 1.6em;
+}
+
+.form-group {
+  margin-bottom: 10%;
+}
+
+.form-group label {
+  min-width: 50%;
+  font-size: 1.2em;
+}
+
+.form-group input {
+  width: 80%;
+  height: 5vh;
+  margin-bottom: 2%;
+  font-size: 1em;
+  padding: 2%;
+  color: white;
+  background-color: #121212e3;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 3vh;
+  width: 100%;
+  background-color: rgba(225, 255, 0, 0.575);
+  text-align: center;
+}
+
+.log-info {
+  color: red;
+  margin-bottom: 5%;
+}
+
+@-webkit-keyframes set-in-form {
+  0% {
+    -webkit-transform: translateX(15%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+
+@-webkit-keyframes set-in-info {
+  0% {
+    -webkit-transform: translateY(-30%);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes text-appear {
+  0% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.4;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}

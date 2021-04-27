@@ -2,9 +2,7 @@ package com.challenge.alkemy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-//Quitar los parentesis cuando configuremos la base de datos.
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
+@SpringBootApplication
 public class UniversitySimulatorApplication {
 
 	public static void main(String[] args) {

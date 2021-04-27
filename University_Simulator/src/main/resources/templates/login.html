@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus Universidad</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/mainPageScript.js}"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido al campus virtual</h1>
+    </header>
+    <!-- Contenido de la Pagina -->
+    <div class="container">
+      <!-- Algun relleno -->
+      <div class="subdivision content">
+        <h2>Inicie sesion para acceder a su informacion</h2>
+        <ul>
+          <li>Vea las materias disponibles</li>
+          <li>Inscribase a materias</li>
+        </ul>
+
+        <img th:src="@{/img/prog1.jpg}" alt="" />
+      </div>
+
+      <!-- Formulario de Login -->
+      <div class="subdivision formContainer">
+        <form th:action="@{/login}" method="POST">
+          <h2>Iniciar Sesion</h2>
+          <div class="userSelector">
+            <h4>Ingresar como:</h4>
+            <select name="" id="selector" onchange="checkOption()">
+              <option value="student">Alumno</option>
+              <option value="admin" id="ad">Administrador</option>
+            </select>
+          </div>
+          <div class="formBody">
+            <!-- Login de Alumnos -->
+            <div id="studentLogIn">
+              <div class="form-group">
+                <label id="studLabelUser">Legajo</label>
+                <br />
+                <input
+                  autofocus
+                  type="number"
+                  placeholder="Example: 102443"
+                  id="studInputUser"
+                />
+              </div>
+              <div class="form-group">
+                <label id="studLabelPass">DNI</label>
+                <br />
+                <input
+                  type="number"
+                  max="99999999"
+                  id="studInputPass"
+                  placeholder="Example: 42103275"
+                />
+              </div>
+              <!-- Advertencias! -->
+              <div class="log-info" th:if="${param.error}">
+                Credenciales invalidas!
+              </div>
+              <div class="log-info" th:if="${param.logout}">Has salido!</div>
+            </div>
+
+            <!-- Login de Administradores -->
+            <div id="adminLogIn">
+              <div class="form-group">
+                <label id="adminLabelUser">Usuario</label>
+                <input
+                  type="text"
+                  placeholder="Example: Alan4123"
+                  id="adminInputUser"
+                />
+              </div>
+
+              <div class="form-group">
+                <label id="adminLabelPass">Contraseña</label>
+                <input
+                  id="adminInputPass"
+                  type="password"
+                  placeholder="***********"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button type="submit">Ingresar</button>
+        </form>
+      </div>
+    </div>
+
+    <footer>
+      <p>Universidad®</p>
+    </footer>
+  </body>
+</html>
