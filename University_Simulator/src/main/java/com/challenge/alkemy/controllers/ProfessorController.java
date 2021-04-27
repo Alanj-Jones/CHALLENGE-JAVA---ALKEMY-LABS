@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
@@ -52,6 +53,13 @@ public class ProfessorController {
             String msg = "El DNI seleccionado ya esta en uso";
             return "redirect:/Admin/addProfessor?error=true&msg=" + msg;
         }
+        return "redirect:/Admin/professors";
+    }
+
+    @GetMapping("/Admin/professor/delete/{professorId}")
+    public String deleteProfessor(@PathVariable(name = "professorId") Integer professorId) {
+        professorRepo.deleteById(professorId);
+
         return "redirect:/Admin/professors";
     }
     

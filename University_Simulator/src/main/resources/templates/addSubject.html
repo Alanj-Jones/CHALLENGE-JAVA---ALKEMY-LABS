@@ -75,12 +75,12 @@
       </div>
 
       <div class="form-group">
-        <label for="professor_name">Profesor:</label>
+        <label for="professor_id">Profesor:</label>
         <br />
-        <select name="professor_name" id="prof">
+        <select name="professor_id" id="prof">
           <option
             th:each="professor : ${professors}"
-            th:value="${professor.firstName + ' ' + professor.lastName}"
+            th:value="${professor.professorId}"
             th:if="${professor.isActive}"
             th:text="${professor.firstName + ' ' + professor.lastName}"
           ></option>

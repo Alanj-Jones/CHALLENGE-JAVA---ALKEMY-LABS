@@ -22,7 +22,14 @@ public class SubjectController {
     SubjectRepository subjectRepo;
 
     @Autowired
-    ProfessorRepository professorRepo;    
+    ProfessorRepository professorRepo;   
+    
+    @GetMapping("/subjects")
+    public String availableSubjects(Model model) {
+        model.addAttribute("subjectList", subjectRepo.findAll());
+        model.addAttribute("professors", professorRepo.findAll());
+        return "availableSubjects";
+    }
 
     @GetMapping("/Admin/addSubject")
     private String newSubject(Model model) {

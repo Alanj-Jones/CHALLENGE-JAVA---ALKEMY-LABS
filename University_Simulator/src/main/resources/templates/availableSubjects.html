@@ -44,7 +44,12 @@
             <div class="scrollable" th:text="${subject.description}"></div>
           </td>
           <td id="prof">
-            <div class="scrollable" th:text="${subject.professor_name}"></div>
+            <div
+              class="scrollable"
+              th:each="prof : ${professors}"
+              th:if="${subject.professor_id == prof.professorId}"
+              th:text="${prof.firstName + ' ' + prof.lastName}"
+            ></div>
           </td>
           <td id="start_time">
             <div class="scrollable" th:text="${subject.start_time}"></div>
