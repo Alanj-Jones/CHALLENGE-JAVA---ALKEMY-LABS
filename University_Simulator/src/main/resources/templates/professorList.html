@@ -46,10 +46,21 @@
             ></div>
           </td>
           <td id="action">
-            <button th:value="${professor.professorId}">MODIFICAR</button>
+            <button
+              type="submit"
+              th:value="${professor.professorId}"
+              th:href="@{'/Admin/professor/delete/' + ${professor.professorId}}"
+            >
+              MODIFICAR
+            </button>
           </td>
           <td id="action">
-            <button th:value="${professor.professorId}">ELIMINAR</button>
+            <a
+              th:value="${professor.professorId}"
+              th:href="@{'/Admin/professor/delete/' + ${professor.professorId}}"
+            >
+              <button>ELIMINAR</button>
+            </a>
           </td>
         </tr>
       </tbody>
