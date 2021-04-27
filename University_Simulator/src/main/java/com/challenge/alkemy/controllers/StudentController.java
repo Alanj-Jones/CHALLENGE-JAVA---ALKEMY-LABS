@@ -18,9 +18,5 @@ public class StudentController {
         return "studentSubjects";
     }
     
-    @GetMapping("/subjects")
-    public String availableSubjects(Model model) {
-        model.addAttribute("subjectList", subjectRepo.findAll());
-        return "availableSubjects";
-    }
+    
 }

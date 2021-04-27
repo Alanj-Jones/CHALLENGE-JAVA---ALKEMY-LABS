@@ -43,8 +43,12 @@ public class Subject {
     private LocalTime end_time;
 
     @NotNull
-    @Column(name = "professor_name")
-    private String professor_name;
+    @Column(name = "professor_id")
+    private Integer professor_id;
+    
+    // @NotNull
+    // @Column(name = "professor_name")
+    // private String professor_name;
 
     // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     // @JoinTable(
@@ -56,14 +60,14 @@ public class Subject {
 
     public Subject() {
     }
-
-    public Subject(String name, String description, int capacity, LocalTime start_time, LocalTime end_time, String professor_name) {
+//String professor_name
+    public Subject(String name, String description, int capacity, LocalTime start_time, LocalTime end_time) {
         this.name = name;
         this.description = description;
         this.capacity = capacity;
         this.start_time = start_time;
         this.end_time = end_time;
-        this.professor_name = professor_name;
+        // this.professor_name = professor_name;
     }
 
     public String getName() {
@@ -106,13 +110,13 @@ public class Subject {
         this.end_time = end_time;
     }
 
-    public String getProfessor_name() {
-        return this.professor_name;
-    }
+    // public String getProfessor_name() {
+    //     return this.professor_name;
+    // }
 
-    public void setProfessor_name(String professor_name) {
-        this.professor_name = professor_name;
-    }
+    // public void setProfessor_name(String professor_name) {
+    //     this.professor_name = professor_name;
+    // }
 
     public Integer getSubjectId() {
         return this.subjectId;
@@ -122,12 +126,13 @@ public class Subject {
         this.subjectId = subjectId;
     }
 
-    // public Set<Subject> getSubjects() {
-    //     return this.subjects;
-    // }
+    public Integer getProfessor_id() {
+        return this.professor_id;
+    }
 
-    // public void setSubjects(Set<Subject> subjects) {
-    //     this.subjects = subjects;
-    // }
+    public void setProfessor_id(Integer professor_id) {
+        this.professor_id = professor_id;
+    }
 
+    
 }
