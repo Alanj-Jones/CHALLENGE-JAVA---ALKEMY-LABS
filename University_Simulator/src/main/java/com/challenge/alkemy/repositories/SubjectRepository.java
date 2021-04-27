@@ -1,4 +1,6 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.repositories;
+
+import com.challenge.alkemy.Subject;
 
 import org.springframework.data.repository.CrudRepository;
 
