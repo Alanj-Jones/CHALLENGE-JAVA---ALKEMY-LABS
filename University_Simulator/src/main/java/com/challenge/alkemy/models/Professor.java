@@ -1,4 +1,4 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

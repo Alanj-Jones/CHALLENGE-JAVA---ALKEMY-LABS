@@ -5,6 +5,9 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
+import com.challenge.alkemy.models.Role;
+import com.challenge.alkemy.models.User;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -2,7 +2,7 @@ package com.challenge.alkemy.controllers;
 
 import javax.validation.Valid;
 
-import com.challenge.alkemy.Professor;
+import com.challenge.alkemy.models.Professor;
 import com.challenge.alkemy.repositories.ProfessorRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;

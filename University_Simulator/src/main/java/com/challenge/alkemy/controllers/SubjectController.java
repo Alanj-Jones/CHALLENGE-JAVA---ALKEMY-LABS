@@ -2,7 +2,7 @@ package com.challenge.alkemy.controllers;
 
 import javax.validation.Valid;
 
-import com.challenge.alkemy.Subject;
+import com.challenge.alkemy.models.Subject;
 import com.challenge.alkemy.repositories.ProfessorRepository;
 import com.challenge.alkemy.repositories.SubjectRepository;
 
