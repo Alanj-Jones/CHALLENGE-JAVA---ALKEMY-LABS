@@ -64,7 +64,9 @@
             <button>INSCRIBIRSE</button>
           </td>
           <td id="action" sec:authorize="hasAuthority('ADMIN')">
-            <button>EDITAR</button>
+            <a th:href="@{'/Admin/subject/delete/'+ ${subject.subjectId}}">
+              <button>EDITAR(borrar)</button>
+            </a>
           </td>
         </tr>
       </tbody>
