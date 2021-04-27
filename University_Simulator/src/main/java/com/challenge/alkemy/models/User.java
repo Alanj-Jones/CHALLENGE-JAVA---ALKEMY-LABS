@@ -1,4 +1,4 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.models;
 
 import java.util.HashSet;
 import java.util.Set;

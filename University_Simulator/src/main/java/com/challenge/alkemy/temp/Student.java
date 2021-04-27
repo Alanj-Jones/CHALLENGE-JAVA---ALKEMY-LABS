@@ -1,6 +1,6 @@
 package com.challenge.alkemy.temp;
 
-import com.challenge.alkemy.User;
+import com.challenge.alkemy.models.User;
 
 public class Student extends User {
     

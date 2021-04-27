@@ -1,4 +1,6 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.repositories;
+
+import com.challenge.alkemy.models.User;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

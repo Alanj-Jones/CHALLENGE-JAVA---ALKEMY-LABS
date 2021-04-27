@@ -1,6 +1,6 @@
 package com.challenge.alkemy.controllers;
 
-import com.challenge.alkemy.SubjectRepository;
+import com.challenge.alkemy.repositories.SubjectRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
