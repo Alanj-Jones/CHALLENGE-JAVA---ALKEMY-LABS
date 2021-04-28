@@ -60,14 +60,12 @@ public class Subject {
 
     public Subject() {
     }
-//String professor_name
     public Subject(String name, String description, int capacity, LocalTime start_time, LocalTime end_time) {
         this.name = name;
         this.description = description;
         this.capacity = capacity;
         this.start_time = start_time;
         this.end_time = end_time;
-        // this.professor_name = professor_name;
     }
 
     public String getName() {
@@ -110,14 +108,6 @@ public class Subject {
         this.end_time = end_time;
     }
 
-    // public String getProfessor_name() {
-    //     return this.professor_name;
-    // }
-
-    // public void setProfessor_name(String professor_name) {
-    //     this.professor_name = professor_name;
-    // }
-
     public Integer getSubjectId() {
         return this.subjectId;
     }
@@ -133,6 +123,4 @@ public class Subject {
     public void setProfessor_id(Integer professor_id) {
         this.professor_id = professor_id;
     }
-
-    
 }
