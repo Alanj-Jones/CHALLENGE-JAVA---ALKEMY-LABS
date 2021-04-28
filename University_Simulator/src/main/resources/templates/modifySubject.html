@@ -10,7 +10,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editar materia</title>
-
     <link rel="stylesheet" href="../static/css/form.css" />
     <link rel="stylesheet" href="../static/css/navbar.css" />
     <link rel="stylesheet" href="../static/css/addSubject.css" />
@@ -24,6 +23,7 @@
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/navBarScript.js}"></script>
   </head>
+
   <body>
     <div th:insert="navbar :: menu"></div>
     <h1 class="title">Modificar Materia</h1>
@@ -44,11 +44,6 @@
           required
           th:value="${currentSubject.name}"
         />
-        <!-- <p
-          class="log-info"
-          th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}"
-        ></p> -->
       </div>
 
       <div class="form-group">
@@ -60,11 +55,6 @@
           required
           th:value="${currentSubject.description}"
         />
-        <!-- <p
-          class="log-info"
-          th:if="${#fields.hasErrors('description')}"
-          th:errors="*{description}"
-        ></p> -->
       </div>
 
       <div class="form-group time-container">
@@ -75,11 +65,7 @@
           required
           th:value="${currentSubject.start_time}"
         />
-        <!-- <p
-          class="log-info"
-          th:if="${#fields.hasErrors('start_time')}"
-          th:errors="*{start_time}"
-        ></p> -->
+
         <label for="end_time">Finalizacion:</label>
         <input
           type="time"
@@ -87,11 +73,6 @@
           required
           th:value="${currentSubject.end_time}"
         />
-        <!-- <p
-          class="log-info"
-          th:if="${#fields.hasErrors('end_time')}"
-          th:errors="*{end_time}"
-        ></p> -->
       </div>
 
       <div class="form-group">
@@ -117,11 +98,6 @@
           required
           th:value="${currentSubject.capacity}"
         />
-        <!-- <p
-          class="log-info"
-          th:if="${#fields.hasErrors('capacity')}"
-          th:errors="*{capacity}"
-        ></p> -->
       </div>
 
       <button>Ingresar</button>

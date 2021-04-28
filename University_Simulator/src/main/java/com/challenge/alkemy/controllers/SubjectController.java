@@ -70,10 +70,10 @@ public class SubjectController {
 
     @PostMapping("/Admin/subjectEdited/{id}")
     private String editedSubject(@Valid @ModelAttribute(value = "subj") Subject edited, @PathVariable(name = "id") Integer id, BindingResult result, Model model) {       
-        model.addAttribute("professors", professorRepo.findAll());
         if (result.hasErrors()) {
             return "modifySubject";
         }
+        model.addAttribute("professors", professorRepo.findAll());
         Subject subject = subjectRepo.findBySubjectId(id);
         subject.setName(edited.getName());
         subject.setDescription(edited.getDescription());
