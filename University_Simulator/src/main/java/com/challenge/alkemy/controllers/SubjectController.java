@@ -55,4 +55,34 @@ public class SubjectController {
         subjectRepo.deleteById(id);
         return "redirect:/subjects";
     }
+
+    @GetMapping("/Admin/subject/edit/{id}")
+    public String editSubject(@PathVariable(name = "id") Integer id, Model model) {
+        Subject current = subjectRepo.findBySubjectId(id);
+        model.addAttribute("currentSubject", current);
+        model.addAttribute("professors", professorRepo.findAll());
+
+        Subject s = new Subject();
+        model.addAttribute("subj", s);
+
+        return "modifySubject";
+    }
+
+    @PostMapping("/Admin/subjectEdited/{id}")
+    private String editedSubject(@Valid @ModelAttribute(value = "subj") Subject edited, @PathVariable(name = "id") Integer id, BindingResult result, Model model) {       
+        model.addAttribute("professors", professorRepo.findAll());
+        if (result.hasErrors()) {
+            return "modifySubject";
+        }
+        Subject subject = subjectRepo.findBySubjectId(id);
+        subject.setName(edited.getName());
+        subject.setDescription(edited.getDescription());
+        subject.setStart_time(edited.getStart_time());
+        subject.setEnd_time(edited.getEnd_time());
+        subject.setProfessor_id(edited.getProfessor_id());
+        subject.setCapacity(edited.getCapacity());
+
+        subjectRepo.save(subject);
+        return "redirect:/subjects";
+    }
 }
