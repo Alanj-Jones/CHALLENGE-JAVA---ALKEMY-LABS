@@ -63,4 +63,29 @@ public class ProfessorController {
         return "redirect:/Admin/professors";
     }
     
+    @GetMapping("Admin/professor/edit/{id}")
+    public String editProfessor(@PathVariable(name = "id") Integer id, Model model) {
+        model.addAttribute("currentProf", professorRepo.findById(id).get());
+
+        Professor p = new Professor();
+        model.addAttribute("prof", p);
+        return "modifyProfessor";
+    }
+
+    @PostMapping("/Admin/professorEdited/{id}")
+    private String editedProfessor(@Valid @ModelAttribute(value = "prof") Professor edited, @PathVariable(name = "id") Integer id, BindingResult result, Model model) {       
+        if (result.hasErrors()) {
+            return "modifyProfessor";
+        }
+        model.addAttribute("professors", professorRepo.findAll());
+        Professor professor = professorRepo.findByProfessorId(id);
+        professor.setFirstName(edited.getFirstName());
+        professor.setLastName(edited.getLastName());
+        professor.setDocument(edited.getDocument());
+        professor.setIsActive(edited.getIsActive());
+
+
+        professorRepo.save(professor);
+        return "redirect:/Admin/professors";
+    }
 }

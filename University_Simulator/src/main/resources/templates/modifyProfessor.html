@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modificar profesor</title>
+    <link rel="stylesheet" href="../static/css/form.css" />
+    <link rel="stylesheet" href="../static/css/navbar.css" />
+    <link rel="stylesheet" href="../static/css/addProfessor.css" />
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/navBarScript.js"></script>
+
+    <!-- th styles  -->
+    <link rel="stylesheet" th:href="@{/css/navbar.css}" />
+    <link rel="stylesheet" th:href="@{/css/form.css}" />
+    <link rel="stylesheet" th:href="@{/css/addprofessor.css}" />
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/navBarScript.js}"></script>
+  </head>
+  <body>
+    <div th:insert="navbar :: menu"></div>
+    <h1 class="title">Añadir nuevo profesor</h1>
+    <form
+      th:action="@{'/Admin/professorEdited/'+${currentProf.professorId}}"
+      class="form-container"
+      method="POST"
+      th:object="${prof}"
+    >
+      <h2>Profesor/a</h2>
+      <div class="form-group">
+        <label for="firstName">Nombre:</label>
+        <br />
+        <input
+          type="text"
+          name="firstName"
+          required
+          th:value="${currentProf.firstName}"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Apellido:</label>
+        <br />
+        <input
+          type="text"
+          name="lastName"
+          required
+          th:value="${currentProf.lastName}"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="document">DNI:</label>
+        <br />
+        <input
+          type="text"
+          name="document"
+          required
+          th:value="${currentProf.document}"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="isActive">
+          <select name="isActive">
+            <option value="1" th:selected="${currentProf.isActive}">
+              Activo
+            </option>
+            <option value="0" th:selected="${!currentProf.isActive}">
+              Inactivo
+            </option>
+          </select>
+        </label>
+      </div>
+
+      <button>Ingresar</button>
+      <br /><br />
+      <div class="log-info" th:if="${param.error}" th:text="${param.msg}"></div>
+    </form>
+  </body>
+</html>
