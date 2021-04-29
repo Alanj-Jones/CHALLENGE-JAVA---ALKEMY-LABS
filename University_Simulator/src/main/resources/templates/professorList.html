@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale = 1.0, 
+      maximum-scale=1.0, user-scalable=no"
+    />
     <title>Profesores</title>
     <!-- temp styles -->
     <link rel="stylesheet" href="../static/css/navbar.css" />
@@ -50,7 +54,7 @@
               th:value="${professor.professorId}"
               th:href="@{'/Admin/professor/edit/' + ${professor.professorId}}"
             >
-              <button type="submit">MODIFICAR</button>
+              <button class="button">MODIFICAR</button>
             </a>
           </td>
           <td id="action">
@@ -58,7 +62,7 @@
               th:value="${professor.professorId}"
               th:href="@{'/Admin/professor/delete/' + ${professor.professorId}}"
             >
-              <button>ELIMINAR</button>
+              <button class="button">ELIMINAR</button>
             </a>
           </td>
         </tr>
