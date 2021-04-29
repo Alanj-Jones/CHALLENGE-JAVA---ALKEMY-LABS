@@ -36,8 +36,7 @@ div.info-item button {
   #code,
   #prof,
   #availability,
-  #desc,
-  #action {
+  #desc {
     display: none;
   }
 
