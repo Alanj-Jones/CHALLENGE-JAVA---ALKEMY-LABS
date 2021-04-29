@@ -10,11 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+// @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Entity
 @Table(name = "user")
 public class User {
@@ -35,6 +38,14 @@ public class User {
             inverseJoinColumns = @JoinColumn( name = "role_id")
         )
     private Set<Role> roles = new HashSet<>();
+
+    @JoinTable(
+                name="student_subject", 
+                joinColumns = @JoinColumn(name="user_id"),
+                inverseJoinColumns = @JoinColumn( name = "subject_id")
+            )
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Subject> subjects = new HashSet<>();
 
     public Integer getId() {
         return this.id;
@@ -76,5 +87,12 @@ public class User {
         this.roles = roles;
     }
 
+    public Set<Subject> getSubjects() {
+        return this.subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
 }
