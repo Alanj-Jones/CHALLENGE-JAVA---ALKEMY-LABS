@@ -40,6 +40,10 @@ div.info-item button {
     display: none;
   }
 
+  .button {
+    font-size: 1.3em;
+  }
+
   /* FUTURA IMPLEMENTACION POP UP CON LA INFO
   div.pop-info {
     width: 80vw;

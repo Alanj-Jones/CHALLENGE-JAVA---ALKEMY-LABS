@@ -69,20 +69,20 @@
               th:action="@{'/Student/subject/register/'+ ${subject.subjectId}}"
             >
               <button
+                class="button"
                 th:disabled="${1 > subject.capacity || #sets.contains( studentSubjectIds, subject.subjectId) }"
               >
                 INSCRIBIRSE
               </button>
             </form>
-            </td>
+          </td>
           <td id="action" sec:authorize="hasAuthority('ADMIN')">
             <a th:href="@{'/Admin/subject/edit/'+ ${subject.subjectId}}">
-              <button>EDITAR</button>
+              <button class="button">EDITAR</button>
             </a>
             <a th:href="@{'/Admin/subject/delete/'+ ${subject.subjectId}}">
-              <button>BORRAR</button>
+              <button class="button">BORRAR</button>
             </a>
-          </td>
           </td>
         </tr>
       </tbody>
