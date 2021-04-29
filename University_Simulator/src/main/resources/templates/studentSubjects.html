@@ -36,41 +36,35 @@
         <th id="action">ACCION</th>
       </thead>
       <tbody class="table-body">
-        
-        <tr th:each="subject : ${subjectList}">
-          <span
-            th:each="all : ${allSubjects}"
-            th:if="${all.subjectId == subject.subjectId}"
-            th:asub="${all.subjectId}"
-            th:studsub=${subject.subjectId}
-          >
-            <td id="name">
-              <div class="scrollable" th:text="${subject.name}"></div>
-            </td>
-            <td id="desc" colspan="2">
-              <div class="scrollable" th:text="${subject.description}"></div>
-            </td>
-            <td id="prof">
-              <div
-                class="scrollable"
-                th:each="prof : ${professors}"
-                th:if="${subject.professor_id == prof.professorId}"
-                th:text="${prof.firstName + ' ' + prof.lastName}"
-              ></div>
-            </td>
-            <td id="start_time">
-              <div class="scrollable" th:text="${subject.start_time}"></div>
-            </td>
-            <td id="end_time">
-              <div class="scrollable" th:text="${subject.end_time}"></div>
-            </td>
-            <td>
-              <a th:href="@{'/Student/subject/unsuscribe/' + ${subject.subjectId}}">
-                <button>DESINSCRIBIRSE</button>
-              </a>
-            </td>
-            </td>
-          </span>
+        <tr
+          th:each="all : ${allSubjects}"
+          th:if="${#sets.contains( subjectList, all.subjectId)}"
+        >
+          <td id="name">
+            <div class="scrollable" th:text="${all.name}"></div>
+          </td>
+          <td id="desc" colspan="2">
+            <div class="scrollable" th:text="${all.description}"></div>
+          </td>
+          <td id="prof">
+            <div
+              class="scrollable"
+              th:each="prof : ${professors}"
+              th:if="${all.professor_id == prof.professorId}"
+              th:text="${prof.firstName + ' ' + prof.lastName}"
+            ></div>
+          </td>
+          <td id="start_time">
+            <div class="scrollable" th:text="${all.start_time}"></div>
+          </td>
+          <td id="end_time">
+            <div class="scrollable" th:text="${all.end_time}"></div>
+          </td>
+          <td>
+            <a th:href="@{'/Student/subject/unsuscribe/' + ${all.subjectId}}">
+              <button>DESINSCRIBIRSE</button>
+            </a>
+          </td>
         </tr>
       </tbody>
     </table>
