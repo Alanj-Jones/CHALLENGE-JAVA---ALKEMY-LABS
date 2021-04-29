@@ -46,7 +46,7 @@ public class SubjectController {
             subjIds.add(s.getSubjectId());
         }
         model.addAttribute("studentSubjectIds", subjIds);
-        model.addAttribute("subjectList", subjectRepo.findAll());
+        model.addAttribute("subjectList", subjectRepo.findAllByOrderByNameAsc());
         model.addAttribute("professors", professorRepo.findAll());
         
         return "availableSubjects";
