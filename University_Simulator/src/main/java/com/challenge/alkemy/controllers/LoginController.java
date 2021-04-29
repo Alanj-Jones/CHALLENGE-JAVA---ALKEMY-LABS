@@ -1,5 +1,11 @@
 package com.challenge.alkemy.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import com.challenge.alkemy.repositories.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,6 +14,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
+    @Autowired
+    HttpSession session;
+
+    @Autowired
+    UserRepository userRepo;
+
 
     @GetMapping("/")
     public String mainPage() {
@@ -23,7 +35,10 @@ public class LoginController {
     }
 
     @GetMapping("/menu")
-    public String menu() {
+    public String menu(HttpServletRequest request) {
+        session = request.getSession();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        session.setAttribute("userId", userRepo.findByUsername(auth.getName()).get().getId());
         return "afterLogin";
     }
 

@@ -1,12 +1,15 @@
 package com.challenge.alkemy.models;
 
 import java.time.LocalTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -46,17 +49,9 @@ public class Subject {
     @Column(name = "professor_id")
     private Integer professor_id;
     
-    // @NotNull
-    // @Column(name = "professor_name")
-    // private String professor_name;
+    @ManyToMany(mappedBy = "subjects")
+    private Set<User> students = new HashSet<>();
 
-    // @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    // @JoinTable(
-    //         name="professor_subject", 
-    //         joinColumns = @JoinColumn(name="professor_id"),
-    //         inverseJoinColumns = @JoinColumn( name = "subject_id")
-    //     )
-    // private Set<Subject> subjects = new HashSet<>();
 
     public Subject() {
     }

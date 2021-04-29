@@ -61,7 +61,9 @@
             <div class="scrollable" th:text="${subject.capacity}"></div>
           </td>
           <td id="action" sec:authorize="hasAuthority('STUDENT')">
-            <button>INSCRIBIRSE</button>
+            <a th:href="@{'/Student/subject/register/'+ ${subject.subjectId}}">
+              <button>INSCRIBIRSE</button>
+            </a>
           </td>
           <td id="action" sec:authorize="hasAuthority('ADMIN')">
             <a th:href="@{'/Admin/subject/edit/'+ ${subject.subjectId}}">
