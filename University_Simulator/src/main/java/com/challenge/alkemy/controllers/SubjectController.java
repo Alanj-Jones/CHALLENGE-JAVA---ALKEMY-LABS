@@ -1,10 +1,16 @@
 package com.challenge.alkemy.controllers;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import com.challenge.alkemy.models.Subject;
+import com.challenge.alkemy.models.User;
 import com.challenge.alkemy.repositories.ProfessorRepository;
 import com.challenge.alkemy.repositories.SubjectRepository;
+import com.challenge.alkemy.repositories.UserRepository;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +29,26 @@ public class SubjectController {
     SubjectRepository subjectRepo;
 
     @Autowired
-    ProfessorRepository professorRepo;   
+    ProfessorRepository professorRepo;  
+    
+    @Autowired
+    UserRepository userRepo;
+
+    @Autowired
+    HttpSession session;
     
     @GetMapping("/subjects")
     public String availableSubjects(Model model) {
+        Integer studentId = (Integer) session.getAttribute("userId");
+        User user = userRepo.findById(studentId).get();
+        Set<Integer> subjIds = new HashSet<>();
+        for (Subject s : user.getSubjects()) {
+            subjIds.add(s.getSubjectId());
+        }
+        model.addAttribute("studentSubjectIds", subjIds);
         model.addAttribute("subjectList", subjectRepo.findAll());
         model.addAttribute("professors", professorRepo.findAll());
+        
         return "availableSubjects";
     }
 
