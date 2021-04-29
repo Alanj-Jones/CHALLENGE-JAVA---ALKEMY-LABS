@@ -46,23 +46,38 @@ public class StudentController {
     public String subjectRegister(@PathVariable(name = "subjectId") Integer subjectId) {
         Integer studentId = (Integer) session.getAttribute("userId");
         User user = userRepo.findById(studentId).get();
+        var userSubjects = user.getSubjects();
+        Subject subject = subjectRepo.findBySubjectId(subjectId);
+
+        for (Subject s : userSubjects) {
+            if (s.getSubjectId().equals(subjectId)) {
+                return "redirect:/Student/subjects";
+            }
+        }  
         user.getSubjects().add(subjectRepo.findBySubjectId(subjectId));
         userRepo.save(user);
+        subject.setCapacity(subject.getCapacity()-1);
+        subjectRepo.save(subject);
         
         return "redirect:/Student/subjects";
-    }
-    
+    }    
 
     @GetMapping("/Student/subject/unsuscribe/{subjectId}")
     public String subjectUnsuscribe(@PathVariable(name = "subjectId") Integer id) {
         Integer studentId = (Integer) session.getAttribute("userId");
         User user = userRepo.findById(studentId).get();
+        var userSubjects = user.getSubjects();
         Subject subject = subjectRepo.findBySubjectId(id);
 
-        user.getSubjects().remove(subject);
-        subject.setCapacity(subject.getCapacity()+1);
-        subjectRepo.save(subject);
-        userRepo.save(user);
+        for (Subject s : userSubjects) {
+            if (s.getSubjectId().equals(id)) {
+                userSubjects.remove(subject);
+                userRepo.save(user);
+                subject.setCapacity(subject.getCapacity()+1);
+                subjectRepo.save(subject);
+                break;
+            }
+        }
 
         return "redirect:/Student/subjects";
     }
