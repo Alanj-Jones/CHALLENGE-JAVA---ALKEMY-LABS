@@ -65,7 +65,7 @@
               <div class="scrollable" th:text="${subject.end_time}"></div>
             </td>
             <td>
-              <a th:href="@{'/Student/...'}">
+              <a th:href="@{'/Student/subject/unsuscribe/' + ${subject.subjectId}}">
                 <button>DESINSCRIBIRSE</button>
               </a>
             </td>
@@ -74,20 +74,5 @@
         </tr>
       </tbody>
     </table>
-
-    <!-- FUTURA IMPLEMENTACION: POP UP CON LA INFORMACION         
-    <div class="pop-info">
-    <div class="close-tab"><button>X</button></div>
-    <div class="info-item">
-        Codigo: asdASDasdasdf asfw asfwasfwasfw asfwsasfwasfwasfwasfwas
-    </div>
-    <div class="info-item">Nombre:</div>
-    <div class="info-item">Descripcion:</div>
-    <div class="info-item">Profesor:</div>
-    <div class="info-item">Horario:</div>
-    <div class="info-item action-container">
-        <button>DESUSCRIBIRSE</button>
-    </div>
-    </div> -->
   </body>
 </html>

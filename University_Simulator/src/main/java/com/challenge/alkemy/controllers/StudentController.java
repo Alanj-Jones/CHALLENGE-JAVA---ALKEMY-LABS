@@ -2,6 +2,7 @@ package com.challenge.alkemy.controllers;
 
 import javax.servlet.http.HttpSession;
 
+import com.challenge.alkemy.models.Subject;
 import com.challenge.alkemy.models.User;
 import com.challenge.alkemy.repositories.ProfessorRepository;
 // import com.challenge.alkemy.repositories.StudentRepository;
@@ -38,12 +39,11 @@ public class StudentController {
         model.addAttribute("professors", profRepo.findAll());
         model.addAttribute("allSubjects", subjectRepo.findAll());
 
-
         return "studentSubjects";
     }
 
     @GetMapping("/Student/subject/register/{subjectId}")
-    public String subjectRegister(@PathVariable(name = "subjectId") Integer subjectId, Model model) {
+    public String subjectRegister(@PathVariable(name = "subjectId") Integer subjectId) {
         Integer studentId = (Integer) session.getAttribute("userId");
         User user = userRepo.findById(studentId).get();
         user.getSubjects().add(subjectRepo.findBySubjectId(subjectId));
@@ -52,5 +52,19 @@ public class StudentController {
         return "redirect:/Student/subjects";
     }
     
+
+    @GetMapping("/Student/subject/unsuscribe/{subjectId}")
+    public String subjectUnsuscribe(@PathVariable(name = "subjectId") Integer id) {
+        Integer studentId = (Integer) session.getAttribute("userId");
+        User user = userRepo.findById(studentId).get();
+        Subject subject = subjectRepo.findBySubjectId(id);
+
+        user.getSubjects().remove(subject);
+        subject.setCapacity(subject.getCapacity()+1);
+        subjectRepo.save(subject);
+        userRepo.save(user);
+
+        return "redirect:/Student/subjects";
+    }
     
 }
