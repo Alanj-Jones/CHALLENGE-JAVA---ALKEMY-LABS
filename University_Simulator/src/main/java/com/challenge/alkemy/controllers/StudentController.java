@@ -1,5 +1,8 @@
 package com.challenge.alkemy.controllers;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.servlet.http.HttpSession;
 
 import com.challenge.alkemy.models.Subject;
@@ -35,9 +38,13 @@ public class StudentController {
     public String studentSubjects(Model model) {
         Integer studentId = (Integer) session.getAttribute("userId");
         User user = userRepo.findById(studentId).get();
-        model.addAttribute("subjectList", user.getSubjects().iterator());
+        Set<Integer> subjIds = new HashSet<>();
+        for (Subject s : user.getSubjects()) {
+            subjIds.add(s.getSubjectId());
+        }
+        model.addAttribute("subjectList", subjIds);
         model.addAttribute("professors", profRepo.findAll());
-        model.addAttribute("allSubjects", subjectRepo.findAll());
+        model.addAttribute("allSubjects", subjectRepo.findAllByOrderByNameAsc());
 
         return "studentSubjects";
     }
