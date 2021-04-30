@@ -20,7 +20,6 @@ public class MyUserDetails implements UserDetails{
         this.user = user;
     }
 
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<Role> roles = user.getRoles();
