@@ -53,12 +53,15 @@
   .navbar {
     display: block;
   }
+
   .navbar .logo-img {
     float: left;
   }
+
   .navbar a:not(:first-child):not(.icon) {
     display: none;
   }
+
   .navbar .icon {
     position: absolute;
     top: 0;
@@ -78,6 +81,7 @@
     width: auto;
     margin: 0;
   }
+
   .navbar .menu-item {
     background-color: gray;
     color: rgb(224, 255, 0);

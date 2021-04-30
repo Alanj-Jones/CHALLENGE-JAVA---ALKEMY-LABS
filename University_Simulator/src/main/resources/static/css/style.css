@@ -52,7 +52,6 @@ header::first-letter {
   color: white;
   -webkit-text-stroke: 0.25px rgb(255, 255, 0);
   -webkit-animation: text-appear 2.5s;
-  /* -webkit-animation: set-in-info 2s; */
 }
 
 .content ul {
