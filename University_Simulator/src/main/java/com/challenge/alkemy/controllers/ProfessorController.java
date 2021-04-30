@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
 @Controller
 public class ProfessorController {
 
@@ -76,7 +75,6 @@ public class ProfessorController {
         professor.setLastName(edited.getLastName());
         professor.setDocument(edited.getDocument());
         professor.setIsActive(edited.getIsActive());
-
 
         professorRepo.save(professor);
         return "redirect:/Admin/professors";
