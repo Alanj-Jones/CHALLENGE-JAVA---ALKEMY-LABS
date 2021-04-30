@@ -1,4 +1,4 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.security;
 
 import java.util.ArrayList;
 import java.util.Collection;

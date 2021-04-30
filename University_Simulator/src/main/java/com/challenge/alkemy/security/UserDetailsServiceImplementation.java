@@ -1,4 +1,4 @@
-package com.challenge.alkemy;
+package com.challenge.alkemy.security;
 
 import com.challenge.alkemy.models.User;
 import com.challenge.alkemy.repositories.UserRepository;
