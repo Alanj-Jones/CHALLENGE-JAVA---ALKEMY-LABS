@@ -36,9 +36,12 @@ div.info-item button {
   #code,
   #prof,
   #availability,
-  #desc,
-  #action {
+  #desc {
     display: none;
+  }
+
+  .button {
+    font-size: 1.3em;
   }
 
   /* FUTURA IMPLEMENTACION POP UP CON LA INFO

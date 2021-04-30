@@ -7,8 +7,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale = 1.0, 
+      maximum-scale=1.0, user-scalable=no"
+    />
     <title>Campus Universidad</title>
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/mainPageScript.js"></script>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/mainPageScript.js}"></script>
@@ -27,7 +34,9 @@
           <li>Inscribase a materias</li>
         </ul>
 
-        <img th:src="@{/img/prog1.jpg}" alt="" />
+        <img id="main-img" th:src="@{/img/prog1.jpg}" alt="" />
+        <!-- borrar -->
+        <img id="main-img" src="../static/img/prog1.jpg" alt="" />
       </div>
 
       <!-- Formulario de Login -->
