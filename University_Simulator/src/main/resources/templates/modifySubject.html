@@ -8,12 +8,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale = 1.0, 
-      maximum-scale=1.0, user-scalable=no"
-    />
-    <title>Nuevo Profesor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar materia</title>
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
     <link rel="stylesheet" th:href="@{/css/form.css}" />
     <link rel="stylesheet" th:href="@{/css/addSubject.css}" />
@@ -23,10 +19,10 @@
 
   <body>
     <div th:insert="navbar :: menu"></div>
-    <h1 class="title">Añadir nueva materia</h1>
+    <h1 class="title">Modificar Materia</h1>
 
     <form
-      th:action="@{/Admin/subjectCreated}"
+      th:action="@{'/Admin/subjectEdited/'+${currentSubject.subjectId}}"
       class="form-container"
       method="POST"
       th:object="${subj}"
@@ -35,40 +31,41 @@
       <div class="form-group">
         <label for="name">Nombre:</label>
         <br />
-        <input type="text" name="name" required />
-        <p
-          class="log-info"
-          th:if="${#fields.hasErrors('name')}"
-          th:errors="*{name}"
-        ></p>
+        <input
+          type="text"
+          name="name"
+          required
+          th:value="${currentSubject.name}"
+        />
       </div>
 
       <div class="form-group">
         <label for="description">Descripcion:</label>
         <br />
-        <input type="text" name="description" required />
-        <p
-          class="log-info"
-          th:if="${#fields.hasErrors('description')}"
-          th:errors="*{description}"
-        ></p>
+        <input
+          type="text"
+          name="description"
+          required
+          th:value="${currentSubject.description}"
+        />
       </div>
 
       <div class="form-group time-container">
         <label for="start_time">Comienzo:</label>
-        <input type="time" name="start_time" required />
-        <p
-          class="log-info"
-          th:if="${#fields.hasErrors('start_time')}"
-          th:errors="*{start_time}"
-        ></p>
+        <input
+          type="time"
+          name="start_time"
+          required
+          th:value="${currentSubject.start_time}"
+        />
+
         <label for="end_time">Finalizacion:</label>
-        <input type="time" name="end_time" required />
-        <p
-          class="log-info"
-          th:if="${#fields.hasErrors('end_time')}"
-          th:errors="*{end_time}"
-        ></p>
+        <input
+          type="time"
+          name="end_time"
+          required
+          th:value="${currentSubject.end_time}"
+        />
       </div>
 
       <div class="form-group">
@@ -79,6 +76,7 @@
             th:each="professor : ${professors}"
             th:value="${professor.professorId}"
             th:if="${professor.isActive}"
+            th:selected="${professor.professorId == currentSubject.professor_id}"
             th:text="${professor.firstName + ' ' + professor.lastName}"
           ></option>
         </select>
@@ -86,12 +84,13 @@
 
       <div class="form-group">
         <label for="capacity">Cupo maximo:</label>
-        <input type="text" name="capacity" id="availability" required />
-        <p
-          class="log-info"
-          th:if="${#fields.hasErrors('capacity')}"
-          th:errors="*{capacity}"
-        ></p>
+        <input
+          type="text"
+          name="capacity"
+          id="availability"
+          required
+          th:value="${currentSubject.capacity}"
+        />
       </div>
 
       <button>Ingresar</button>

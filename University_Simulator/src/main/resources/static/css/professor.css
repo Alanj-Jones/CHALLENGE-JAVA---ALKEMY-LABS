@@ -1,5 +1,13 @@
 @media screen and (max-width: 600px) {
-  #code {
+  #document {
     display: none;
+  }
+
+  .table-header th {
+    font-size: 0.75em;
+  }
+
+  .button {
+    font-size: 1.3em;
   }
 }

@@ -1,10 +1,18 @@
 package com.challenge.alkemy.models;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -47,6 +55,14 @@ public class Professor {
         this.document = document;
         this.isActive = isActive;
     }
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "professor_subject",
+        joinColumns = @JoinColumn(name="professor_id"),
+        inverseJoinColumns = @JoinColumn(name="subject_id")
+        )
+    private Set<Subject> subjects = new HashSet<>();  
 
     public Integer getProfessorId() {
         return this.professorId;
@@ -90,6 +106,14 @@ public class Professor {
 
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
+    }
+
+    public Set<Subject> getSubjects() {
+        return this.subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
     }
 
 }

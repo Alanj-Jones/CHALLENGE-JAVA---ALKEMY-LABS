@@ -8,13 +8,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale = 1.0, 
+      maximum-scale=1.0, user-scalable=no"
+    />
     <title>Materias Disponibles</title>
-    <!-- temp styles -->
-    <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/table.css" />
-    <link rel="stylesheet" href="../static/css/subject.css" />
-    <!--  -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
     <link rel="stylesheet" th:href="@{/css/table.css}" />
     <link rel="stylesheet" th:href="@{/css/subject.css}" />
@@ -44,7 +43,12 @@
             <div class="scrollable" th:text="${subject.description}"></div>
           </td>
           <td id="prof">
-            <div class="scrollable" th:text="${subject.professor_name}"></div>
+            <div
+              class="scrollable"
+              th:each="prof : ${professors}"
+              th:if="${subject.professor_id == prof.professorId}"
+              th:text="${prof.firstName + ' ' + prof.lastName}"
+            ></div>
           </td>
           <td id="start_time">
             <div class="scrollable" th:text="${subject.start_time}"></div>
@@ -56,10 +60,24 @@
             <div class="scrollable" th:text="${subject.capacity}"></div>
           </td>
           <td id="action" sec:authorize="hasAuthority('STUDENT')">
-            <button>INSCRIBIRSE</button>
+            <form
+              th:action="@{'/Student/subject/register/'+ ${subject.subjectId}}"
+            >
+              <button
+                class="button"
+                th:disabled="${1 > subject.capacity || #sets.contains( studentSubjectIds, subject.subjectId) }"
+              >
+                INSCRIBIRSE
+              </button>
+            </form>
           </td>
           <td id="action" sec:authorize="hasAuthority('ADMIN')">
-            <button>EDITAR</button>
+            <a th:href="@{'/Admin/subject/edit/'+ ${subject.subjectId}}">
+              <button class="button">EDITAR</button>
+            </a>
+            <a th:href="@{'/Admin/subject/delete/'+ ${subject.subjectId}}">
+              <button class="button">BORRAR</button>
+            </a>
           </td>
         </tr>
       </tbody>

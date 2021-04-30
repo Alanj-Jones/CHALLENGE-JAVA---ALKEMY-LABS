@@ -36,6 +36,14 @@ public class User {
         )
     private Set<Role> roles = new HashSet<>();
 
+    @JoinTable(
+                name="student_subject", 
+                joinColumns = @JoinColumn(name="user_id"),
+                inverseJoinColumns = @JoinColumn( name = "subject_id")
+            )
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Subject> subjects = new HashSet<>();
+
     public Integer getId() {
         return this.id;
     }
@@ -76,5 +84,12 @@ public class User {
         this.roles = roles;
     }
 
+    public Set<Subject> getSubjects() {
+        return this.subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
 }

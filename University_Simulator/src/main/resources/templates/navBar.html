@@ -15,7 +15,7 @@
     <div th:fragment="menu">
       <nav class="navbar" id="navbar">
         <div>
-          <a href="/menu" class="logo-img">
+          <a href="/menu" class="logo-img" id="menu">
             <img th:src="@{/img/UniversityLogo.png}" alt="~Universidad~" />
           </a>
         </div>
@@ -51,6 +51,9 @@
           class="menu-item"
         >
           <span> Agregar Profesor </span>
+        </a>
+        <a th:href="@{/logout}" class="menu-item">
+          <span>Logout</span>
         </a>
         <a
           href="javascript:void(0);"

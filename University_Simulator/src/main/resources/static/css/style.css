@@ -52,7 +52,6 @@ header::first-letter {
   color: white;
   -webkit-text-stroke: 0.25px rgb(255, 255, 0);
   -webkit-animation: text-appear 2.5s;
-  /* -webkit-animation: set-in-info 2s; */
 }
 
 .content ul {
@@ -60,7 +59,7 @@ header::first-letter {
 }
 
 .content img {
-  margin: 3% 0;
+  margin: 2% 0;
   position: absolute;
   height: 50%;
   width: 55%;
@@ -74,7 +73,7 @@ header::first-letter {
 .formContainer {
   width: 30vw;
   padding: 1%;
-  height: 65vh;
+  height: 75vh;
   background-color: rgb(224, 255, 0);
   -webkit-animation: set-in-form 1.5s;
 }
@@ -115,7 +114,7 @@ form button {
   width: 50%;
   min-height: 10%;
   position: absolute;
-  bottom: 10%;
+  bottom: 8%;
   left: 25%;
   font-size: 1.6em;
 }
@@ -188,5 +187,23 @@ footer {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .content,
+  #main-img {
+    display: none;
+  }
+
+  header h1 {
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .formContainer {
+    width: 80vw;
+    height: 65vh;
+    margin: 25% 0;
   }
 }
