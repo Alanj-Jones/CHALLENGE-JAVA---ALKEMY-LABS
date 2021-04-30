@@ -9,19 +9,13 @@
       maximum-scale=1.0, user-scalable=no"
     />
     <title>Nuevo Profesor</title>
-    <link rel="stylesheet" href="../static/css/form.css" />
-    <link rel="stylesheet" href="../static/css/navbar.css" />
-    <link rel="stylesheet" href="../static/css/addProfessor.css" />
-    <script src="../static/js/jquery.js"></script>
-    <script src="../static/js/navBarScript.js"></script>
-
-    <!-- th styles  -->
     <link rel="stylesheet" th:href="@{/css/navbar.css}" />
     <link rel="stylesheet" th:href="@{/css/form.css}" />
     <link rel="stylesheet" th:href="@{/css/addprofessor.css}" />
     <script th:src="@{/js/jquery.js}"></script>
     <script th:src="@{/js/navBarScript.js}"></script>
   </head>
+
   <body>
     <div th:insert="navbar :: menu"></div>
     <h1 class="title">Añadir nuevo profesor</h1>

@@ -55,6 +55,7 @@ public class Professor {
         this.document = document;
         this.isActive = isActive;
     }
+    
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
         name = "professor_subject",

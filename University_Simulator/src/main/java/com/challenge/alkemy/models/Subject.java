@@ -52,7 +52,6 @@ public class Subject {
     @ManyToMany(mappedBy = "subjects")
     private Set<User> students = new HashSet<>();
 
-
     public Subject() {
     }
     public Subject(String name, String description, int capacity, LocalTime start_time, LocalTime end_time) {

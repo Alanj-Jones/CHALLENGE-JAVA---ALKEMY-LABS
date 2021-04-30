@@ -3,11 +3,13 @@
     height: 70vh;
     width: 80%;
   }
+
   .form-container button {
     margin: 10% 0;
     margin-left: 25%;
     width: 50%;
   }
+
   .form-group {
     margin-top: 25px;
   }
