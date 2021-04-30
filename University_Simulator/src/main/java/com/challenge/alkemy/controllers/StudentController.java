@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSession;
 import com.challenge.alkemy.models.Subject;
 import com.challenge.alkemy.models.User;
 import com.challenge.alkemy.repositories.ProfessorRepository;
-// import com.challenge.alkemy.repositories.StudentRepository;
 import com.challenge.alkemy.repositories.SubjectRepository;
 import com.challenge.alkemy.repositories.UserRepository;
 
@@ -16,7 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
